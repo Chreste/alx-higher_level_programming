@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * is_palindrome - tests if linked lists is palindrome
@@ -7,42 +8,42 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head, *fast = *head, *n, *p;
+	listint_t *slow = *head, *fast = *head, *node, *prev;
 	int failed = 0;
-
+	
 	while (fast != NULL && fast->next != NULL)
 	{
 		fast = fast->next->next;
 		slow = slow->next;
 	}
-	n = slow;
-	p = NULL;
-	while (n)
+	node = slow;
+	prev = NULL;
+	while (node)
 	{
-		fast = n->next;
-		n->next = p;
-		p = n;
-		n = fast;
+		fast = node->next;
+		node->next = prev;
+		prev = node;
+		node = fast;
 	}
 	fast = *head;
-	n = p;
-	while (p)
+	node = prev;
+	while (prev)
 	{
-		if (fast->m != p->m)
+		if (fast->n != prev->n)
 		{
 			failed = 1;
 			break;
 		}
 		fast = fast->next;
-		p = p->next;
+		prev = prev->next;
 	}
-	p = NULL;
-	while (n)
+	prev = NULL;
+	while (node)
 	{
-		fast = n->next;
-		n->next = p;
-		p = n;
-		n = fast;
+		fast = node->next;
+		node->next = prev;
+		prev = node;
+		node = fast;
 	}
 	return (!failed);
 }
