@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-""" defines a class Square """"
+""" Defines a class named Square """
 
 
 class Square:
-    """ class for Square"""
-
+    """ defines a function called __init__ """
     def __init__(self, size):
-        """ Initialize class """
-
+        """ initializes __size of self with size """
         self.__size = size
