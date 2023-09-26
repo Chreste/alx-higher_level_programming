@@ -60,7 +60,7 @@ class Square:
             return
         for x in range(self.__position[1]):
             print()
-        for v in range(self.__size):
+        for x in range(self.__size):
             print("".join([" " for e in range(self.__position[0])]), end="")
             print("".join(["#" for l in range(self.__size)]))
 
