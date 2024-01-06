@@ -9,3 +9,5 @@ if __name__ == "__main__":
     with urllib.request.urlopen(argv[1]) as response:
         alx = response.info()
         print(alx['X-Request-Id'])
+    except:
+        pass
