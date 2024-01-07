@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-Write a Python script that fetches https://alx-intranet.hbtn.io/status
-You must use the package requests"""
-
+Python script that fetches an URL with requests package
+"""
 import requests
+
+
 if __name__ == "__main__":
     res = requests.get('https://alx-intranet.hbtn.io/status')
-    print("Body response:")
-    print("\t- type: {}".format(type(res.content)))
-    print("\t- content: {}".format(res.content))
+    v = res.text
+    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(v), v))
