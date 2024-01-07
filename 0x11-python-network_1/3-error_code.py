@@ -3,10 +3,12 @@
 and displays the body of the response (decoded in utf-8)."""
 
 import sys
-from urllib import request, error, parse
-respones = urllib.request.Request(sys.argv[1])
-with urllib.request.urlopen(req) as response:
-    reqst = response.read().decode('utf8')
-    print(reqst)
-except urllib.error.HTTPError as err:
-    print("Error code: {}".format(err.code))
+from urllib import request, error
+if __name__ == "__main__":
+    try:
+        resp = request.Request(sys.argv[1])
+        with request.urlopen(resp) as response:
+            reqst = response.read().decode('utf8')
+            print(reqst)
+    except error.HTTPError as err:
+        print('Error code: {}'.format(err.code))
