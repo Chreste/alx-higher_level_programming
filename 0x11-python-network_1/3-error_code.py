@@ -16,11 +16,6 @@ def send_post_request(url, email):
     except urllib.error.HTTPError as e:
         print("Error code:", e.code)
 
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Index")
-        sys.exit(1)
-
     url = sys.argv[1]
     email = sys.argv[2]
     send_post_request(url, email)
