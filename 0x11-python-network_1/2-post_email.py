@@ -7,6 +7,9 @@ from sys import argv
 
 if __name__ == "__main__":
     data = parse.urlencode({"email": argv[2]}).encode('utf-8')
-    req = urllib.request.Request(sys.argv[1], data, method="POST")
+    req = urllib.request.Request(argv[1], data, method="POST")
     with request.urlopen(req) as respone:
         print(response.read().decode('utf-8'))
+    if len(argv) != 3:
+        print("Please provide an email address as a command-line argument.")
+        sys.exit(1)
